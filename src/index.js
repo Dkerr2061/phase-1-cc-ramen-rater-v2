@@ -50,6 +50,21 @@ const addSubmitListener = () => {
     })
 }
 
+const updateRamen = () => {
+  const updatedRamen = document.getElementById('edit-ramen')
+      updatedRamen.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const editedRatingElement = document.getElementById('edit-rating')
+        const editedCommentElement = document.getElementById('edit-comment')
+        const detailsRating = document.getElementById('rating-display')
+        const detailsComment = document.getElementById('comment-display')
+          detailsRating.innerText = editedRatingElement.value
+          detailsComment.innerText = editedCommentElement.value
+      
+        updatedRamen.reset()
+      })
+}
+
 const displayRamens = () => {
   
   
@@ -75,6 +90,7 @@ const displayRamens = () => {
 const main = () => {
   displayRamens()
   addSubmitListener()
+  updateRamen()
 }
 
 
