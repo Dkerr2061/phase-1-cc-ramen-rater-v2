@@ -1,6 +1,6 @@
 // index.js
 const ramenMenuDiv = document.getElementById('ramen-menu')
-let currentlyDisplayedRamen;
+
 // Callbacks
 const handleClick = (ramen) => {
   
@@ -46,6 +46,7 @@ const addSubmitListener = () => {
           ramenImageElement.addEventListener('click', () => {
             handleClick(newRamenObject)
           }) 
+          newRamenForm.reset()
     })
 }
 
