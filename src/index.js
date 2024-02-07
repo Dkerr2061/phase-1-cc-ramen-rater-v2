@@ -20,7 +20,12 @@ const handleClick = (ramen) => {
   const ramenRestaurant = document.querySelector('h3.restaurant')
         ramenRestaurant.innerText = ramen.restaurant
 
-        
+    //     const deleteButton = document.createElement('button')
+    // deleteButton.addEventListener('click', () => deleteTask)
+
+    //     function deleteTask(ramen) {
+    //       ramen.target.parentNode.remove()
+    //     }
     
 };
 
@@ -46,9 +51,19 @@ const addSubmitListener = () => {
           ramenImageElement.addEventListener('click', () => {
             handleClick(newRamenObject)
           }) 
+      
+        fetch('http://localhost:3000/ramens', {
+          method: 'POST',
+          headers: {
+           'Content-Type': 'application/json' 
+          },
+          body: JSON.stringify(newRamenObject)
+        })
+        
+      
           newRamenForm.reset()
     })
-}
+};
 
 const updateRamen = () => {
   const updatedRamen = document.getElementById('edit-ramen')
@@ -63,7 +78,13 @@ const updateRamen = () => {
       
         updatedRamen.reset()
       })
-}
+};
+
+// const deleteRamen = () => {
+//  const deleteButton = document.createElement('button')
+//     deleteButton.addEventListener('click', () => deleteTask)
+// }
+
 
 const displayRamens = () => {
   
@@ -91,6 +112,7 @@ const main = () => {
   displayRamens()
   addSubmitListener()
   updateRamen()
+  // deleteRamen()
 }
 
 
